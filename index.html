@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motos Elche | Taller de Reparación de Motos en Elche</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;color:#222}
+:root{--orange:#ff6b00;--orange-dark:#e05a00;--dark:#0a0a0a;--dark2:#111;--grey:#1a1a1a}
+
+nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(8,8,8,0.97);backdrop-filter:blur(10px);padding:14px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,107,0,0.2)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-icon{font-size:26px}
+.nav-logo-text{color:#fff;font-size:1.1rem;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+.nav-logo-text span{color:var(--orange)}
+.nav-cta{background:var(--orange);color:#fff;padding:10px 22px;border-radius:4px;text-decoration:none;font-weight:700;font-size:0.9rem;transition:all 0.3s;text-transform:uppercase;letter-spacing:0.5px}
+.nav-cta:hover{background:var(--orange-dark);transform:translateY(-1px)}
+
+.hero{min-height:100vh;background:linear-gradient(135deg,#080808 0%,#0f0f0f 60%,#0a0a0a 100%);display:flex;align-items:center;padding:100px 40px 60px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 65% 50%,rgba(255,107,0,0.08) 0%,transparent 60%)}
+.hero::after{content:'🏍';position:absolute;right:5%;top:50%;transform:translateY(-50%);font-size:16rem;opacity:0.05;line-height:1}
+.hero-content{max-width:640px;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,107,0,0.12);border:1px solid rgba(255,107,0,0.35);color:var(--orange);padding:7px 18px;border-radius:3px;font-size:0.8rem;margin-bottom:28px;font-weight:600;letter-spacing:2px;text-transform:uppercase}
+.hero h1{font-size:3.2rem;color:#fff;font-weight:800;line-height:1.15;margin-bottom:20px}
+.hero h1 span{color:var(--orange)}
+.hero p{color:#999;font-size:1.1rem;line-height:1.7;margin-bottom:36px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:52px}
+.btn-orange{background:var(--orange);color:#fff;padding:15px 34px;border-radius:4px;text-decoration:none;font-weight:700;font-size:0.95rem;transition:all 0.3s;text-transform:uppercase;letter-spacing:1px;box-shadow:0 4px 20px rgba(255,107,0,0.3)}
+.btn-orange:hover{background:var(--orange-dark);transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,107,0,0.4)}
+.btn-outline{background:transparent;color:#fff;padding:15px 34px;border-radius:4px;text-decoration:none;font-weight:600;font-size:0.95rem;border:1px solid rgba(255,255,255,0.2);transition:all 0.3s;text-transform:uppercase;letter-spacing:1px}
+.btn-outline:hover{border-color:var(--orange);color:var(--orange)}
+.hero-stats{display:flex;gap:44px;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-size:2rem;font-weight:800;color:var(--orange)}
+.stat-label{color:#666;font-size:0.8rem;margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+
+section{padding:80px 40px}
+.section-label{text-align:center;color:var(--orange);font-size:0.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+.section-title{font-size:2.2rem;font-weight:800;text-align:center;margin-bottom:12px;color:#111}
+.section-title-light{font-size:2.2rem;font-weight:800;text-align:center;margin-bottom:12px;color:#fff}
+.section-sub{text-align:center;color:#666;font-size:1rem;max-width:580px;margin:0 auto 50px;line-height:1.6}
+.orange-line{width:60px;height:3px;background:var(--orange);margin:0 auto 20px}
+
+.servicios{background:#f5f5f5}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;max-width:1100px;margin:0 auto;background:#e0e0e0;border:1px solid #e0e0e0}
+.service-card{background:#fff;padding:36px 28px;text-align:center;transition:all 0.3s;position:relative;overflow:hidden}
+.service-card::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:var(--orange);transform:scaleX(0);transition:transform 0.3s}
+.service-card:hover::after{transform:scaleX(1)}
+.service-card:hover{background:#fafafa}
+.service-icon{font-size:2.5rem;margin-bottom:16px}
+.service-card h3{font-size:1rem;color:#111;font-weight:700;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
+.service-card p{color:#777;font-size:0.88rem;line-height:1.5}
+
+.porque{background:var(--dark)}
+.porque-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0;max-width:1100px;margin:0 auto}
+.porque-item{padding:36px 32px;border:1px solid rgba(255,107,0,0.1);transition:all 0.3s}
+.porque-item:hover{background:rgba(255,107,0,0.05);border-color:rgba(255,107,0,0.3)}
+.porque-num{font-size:3rem;font-weight:800;color:rgba(255,107,0,0.15);line-height:1;margin-bottom:12px}
+.porque-item h3{color:#fff;font-size:1rem;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:1px}
+.porque-item p{color:#666;font-size:0.9rem;line-height:1.6}
+
+.resenas{background:#fff}
+.resenas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1100px;margin:0 auto}
+.resena-card{background:#fafafa;border:1px solid #ebebeb;padding:30px;transition:all 0.3s}
+.resena-card:hover{border-color:var(--orange);box-shadow:0 8px 30px rgba(0,0,0,0.08)}
+.resena-stars{color:#f9a825;font-size:1rem;margin-bottom:14px;letter-spacing:2px}
+.resena-text{color:#444;line-height:1.7;font-style:italic;margin-bottom:18px;font-size:0.95rem}
+.resena-author{display:flex;align-items:center;gap:12px}
+.resena-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--orange),#c44a00);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:0.9rem}
+.resena-name{font-weight:700;color:#111;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.5px}
+.resena-via{color:#aaa;font-size:0.78rem;margin-top:2px}
+.resena-badge{background:rgba(255,107,0,0.1);color:var(--orange);padding:4px 12px;border-radius:3px;font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-left:auto}
+
+.info-section{background:#f5f5f5}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:1100px;margin:0 auto}
+@media(max-width:768px){.info-grid{grid-template-columns:1fr}}
+.horario-card{background:#fff;border:1px solid #e8e8e8;padding:36px}
+.horario-card h3{font-size:1rem;color:#111;font-weight:700;margin-bottom:24px;text-transform:uppercase;letter-spacing:2px;display:flex;align-items:center;gap:10px}
+.horario-card h3 span{color:var(--orange)}
+.horario-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #f0f0f0}
+.horario-item:last-child{border-bottom:none}
+.horario-day{color:#555;font-weight:500;font-size:0.9rem}
+.horario-time{color:var(--orange);font-weight:700;font-size:0.9rem}
+.horario-closed{color:#ccc;font-weight:500;font-size:0.9rem}
+.contact-info{margin-top:28px;padding-top:28px;border-top:1px solid #ebebeb}
+.contact-item{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.contact-icon{font-size:1.2rem;width:32px;text-align:center}
+.contact-text{color:#444;font-size:0.9rem}
+.map-container{overflow:hidden;height:450px;border:1px solid #e8e8e8}
+.map-container iframe{width:100%;height:100%;border:none}
+
+.cta-final{background:linear-gradient(135deg,var(--dark) 0%,#150a00 100%);text-align:center;padding:90px 40px;border-top:1px solid rgba(255,107,0,0.2)}
+.cta-label{color:var(--orange);font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
+.cta-final h2{font-size:2.5rem;color:#fff;font-weight:800;margin-bottom:16px}
+.cta-final p{color:#888;font-size:1rem;margin-bottom:40px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.7}
+.cta-final-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-orange-lg{background:var(--orange);color:#fff;padding:17px 40px;border-radius:4px;text-decoration:none;font-weight:700;font-size:1rem;transition:all 0.3s;text-transform:uppercase;letter-spacing:1px;box-shadow:0 4px 20px rgba(255,107,0,0.3)}
+.btn-orange-lg:hover{background:var(--orange-dark);transform:translateY(-2px)}
+.btn-outline-orange{background:transparent;color:var(--orange);padding:17px 40px;border-radius:4px;text-decoration:none;font-weight:600;font-size:1rem;border:1px solid rgba(255,107,0,0.4);transition:all 0.3s;text-transform:uppercase;letter-spacing:1px}
+.btn-outline-orange:hover{background:rgba(255,107,0,0.1);border-color:var(--orange)}
+
+footer{background:#050505;color:#444;text-align:center;padding:28px 40px;font-size:0.85rem;border-top:1px solid #1a1a1a}
+footer strong{color:var(--orange)}
+footer a{color:var(--orange);text-decoration:none}
+
+.whatsapp-btn{position:fixed;bottom:28px;right:28px;z-index:9999;background:#25d366;color:#fff;border-radius:50%;width:60px;height:60px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);transition:all 0.3s;animation:pulse 2s infinite}
+.whatsapp-btn:hover{transform:scale(1.15)}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,0.5)}70%{box-shadow:0 0 0 14px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+
+@media(max-width:768px){.hero h1{font-size:2.1rem}.hero::after{display:none}section{padding:60px 20px}nav{padding:12px 20px}.hero{padding:100px 20px 60px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-icon">🏍️</span>
+    <span class="nav-logo-text">Motos <span>Elche</span></span>
+  </a>
+  <a href="tel:966443782" class="nav-cta">📞 Llamar ahora</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">🔧 Taller de referencia en Elche</div>
+    <h1>Tu moto en manos<br><span>de expertos</span></h1>
+    <p>Motos Elche — taller de reparación multimarca con más de 300 clientes satisfechos. Diagnóstico rápido, precios competitivos y trabajo de confianza.</p>
+    <div class="hero-btns">
+      <a href="tel:966443782" class="btn-orange">📞 Llamar — 966 44 37 82</a>
+      <a href="#servicios" class="btn-outline">Ver servicios ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">4.8★</div><div class="stat-label">Valoración Google</div></div>
+      <div class="stat"><div class="stat-num">302+</div><div class="stat-label">Reseñas</div></div>
+      <div class="stat"><div class="stat-num">20:00</div><div class="stat-label">Abierto hasta las</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="servicios" id="servicios">
+  <div class="section-label">Lo que hacemos</div>
+  <h2 class="section-title">Nuestros Servicios</h2>
+  <div class="orange-line"></div>
+  <p class="section-sub">Reparamos todo tipo de motos con rapidez y garantía. Desde una revisión hasta una reforma completa.</p>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-icon">🔧</div><h3>Reparación General</h3><p>Diagnóstico y reparación de todo tipo de averías en motos de cualquier marca y modelo.</p></div>
+    <div class="service-card"><div class="service-icon">⚙️</div><h3>Revisiones y Mantenimiento</h3><p>Cambios de aceite, filtros, correas y todo el mantenimiento preventivo para alargar la vida de tu moto.</p></div>
+    <div class="service-card"><div class="service-icon">🛞</div><h3>Cambio de Neumáticos</h3><p>Montaje y equilibrado de neumáticos de todas las marcas. Amplio stock disponible.</p></div>
+    <div class="service-card"><div class="service-icon">⚡</div><h3>Electricidad y Electrónica</h3><p>Diagnóstico electrónico, reparación de sistemas eléctricos y actualización de firmware.</p></div>
+    <div class="service-card"><div class="service-icon">🎨</div><h3>Carrocería y Pintura</h3><p>Reparación de carenados, pintura y restauración estética para que tu moto luzca como nueva.</p></div>
+    <div class="service-card"><div class="service-icon">🏁</div><h3>Preparación a Medida</h3><p>Tunning, accesorios y modificaciones para personalizar tu moto según tus preferencias.</p></div>
+  </div>
+</section>
+
+<section class="porque">
+  <div class="section-label" style="color:var(--orange)">Por qué elegirnos</div>
+  <h2 class="section-title-light">Tu taller de confianza</h2>
+  <div class="orange-line" style="margin-bottom:40px"></div>
+  <div class="porque-grid">
+    <div class="porque-item"><div class="porque-num">01</div><h3>Precios Competitivos</h3><p>Sin sorpresas. Presupuesto previo gratuito y precios claros desde el primer momento.</p></div>
+    <div class="porque-item"><div class="porque-num">02</div><h3>Rapidez y Eficiencia</h3><p>Nos esforzamos en devolverte la moto lo antes posible sin sacrificar calidad en el trabajo.</p></div>
+    <div class="porque-item"><div class="porque-num">03</div><h3>Técnicos Especializados</h3><p>Equipo con años de experiencia en todo tipo de motos, desde scooters hasta deportivas.</p></div>
+    <div class="porque-item"><div class="porque-num">04</div><h3>Horario Amplio</h3><p>Abiertos hasta las 20:00 de lunes a viernes. Fácil de combinar con tu jornada laboral.</p></div>
+  </div>
+</section>
+
+<section class="resenas">
+  <div class="section-label">Clientes satisfechos</div>
+  <h2 class="section-title">Lo que dicen de nosotros</h2>
+  <div class="orange-line"></div>
+  <p class="section-sub">Más de 302 clientes nos han valorado con 4.8 estrellas en Google.</p>
+  <div class="resenas-grid">
+    <div class="resena-card">
+      <div class="resena-stars">★★★★★</div>
+      <p class="resena-text">"Precios muy competitivos y taller de confianza. Llevo años llevando mis motos aquí y siempre salen perfectas. Muy recomendable."</p>
+      <div class="resena-author"><div class="resena-avatar">J</div><div><div class="resena-name">Javier M.</div><div class="resena-via">Reseña en Google</div></div><span class="resena-badge">Verificado</span></div>
+    </div>
+    <div class="resena-card">
+      <div class="resena-stars">★★★★★</div>
+      <p class="resena-text">"Llevé mi moto con una avería complicada y la tuvieron lista en tiempo récord. Trato genial y precio justo. Son los mejores de Elche."</p>
+      <div class="resena-author"><div class="resena-avatar">A</div><div><div class="resena-name">Antonio R.</div><div class="resena-via">Reseña en Google</div></div><span class="resena-badge">Verificado</span></div>
+    </div>
+    <div class="resena-card">
+      <div class="resena-stars">★★★★★</div>
+      <p class="resena-text">"Profesionales totales. Te explican lo que tiene la moto, el coste y el tiempo. Sin sorpresas. El mejor taller que he conocido."</p>
+      <div class="resena-author"><div class="resena-avatar">S</div><div><div class="resena-name">Sara P.</div><div class="resena-via">Reseña en Google</div></div><span class="resena-badge">Verificado</span></div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:36px"><a href="https://maps.google.com" target="_blank" style="color:var(--orange);font-weight:700;text-decoration:none;font-size:0.9rem;letter-spacing:1px;text-transform:uppercase;">Ver las 302 reseñas en Google Maps →</a></div>
+</section>
+
+<section class="info-section">
+  <div class="section-label">Dónde encontrarnos</div>
+  <h2 class="section-title">Visítanos</h2>
+  <div class="orange-line"></div>
+  <p class="section-sub">En Elche, cerca de ti. Ven sin cita o llama primero.</p>
+  <div class="info-grid">
+    <div class="horario-card">
+      <h3><span>🔧</span> Horario del taller</h3>
+      <div class="horario-item"><span class="horario-day">Lunes</span><span class="horario-time">9:00 – 20:00</span></div>
+      <div class="horario-item"><span class="horario-day">Martes</span><span class="horario-time">9:00 – 20:00</span></div>
+      <div class="horario-item"><span class="horario-day">Miércoles</span><span class="horario-time">9:00 – 20:00</span></div>
+      <div class="horario-item"><span class="horario-day">Jueves</span><span class="horario-time">9:00 – 20:00</span></div>
+      <div class="horario-item"><span class="horario-day">Viernes</span><span class="horario-time">9:00 – 20:00</span></div>
+      <div class="horario-item"><span class="horario-day">Sábado</span><span class="horario-time">9:00 – 14:00</span></div>
+      <div class="horario-item"><span class="horario-day">Domingo</span><span class="horario-closed">Cerrado</span></div>
+      <div class="contact-info">
+        <div class="contact-item"><span class="contact-icon">📍</span><span class="contact-text">Av. de Santa Pola, 15, 03203 Elche (Alicante)</span></div>
+        <div class="contact-item"><span class="contact-icon">📞</span><span class="contact-text"><a href="tel:966443782" style="color:var(--orange);font-weight:700;text-decoration:none;">966 44 37 82</a></span></div>
+        <div class="contact-item"><span class="contact-icon">💬</span><span class="contact-text"><a href="https://wa.me/34966443782" style="color:var(--orange);font-weight:700;text-decoration:none;">WhatsApp directo</a></span></div>
+      </div>
+    </div>
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3148.2!2d-0.6862!3d38.2670!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63b68608338ea1%3A0x80657e99a5c0efb1!2sMotos%20Elche!5e0!3m2!1ses!2ses!4v1700000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="cta-label">¿Tu moto tiene un problema?</div>
+  <h2>Llámanos hoy mismo</h2>
+  <p>Cuéntanos qué le pasa a tu moto y te damos presupuesto sin compromiso. Rapidez, honestidad y buen precio garantizados.</p>
+  <div class="cta-final-btns">
+    <a href="tel:966443782" class="btn-orange-lg">📞 Llamar — 966 44 37 82</a>
+    <a href="https://wa.me/34966443782" class="btn-outline-orange">💬 WhatsApp</a>
+  </div>
+</section>
+
+<footer><p>&copy; 2024 <strong>Motos Elche</strong> · Av. de Santa Pola, 15 · Elche · <a href="tel:966443782">966 44 37 82</a></p></footer>
+
+<a href="https://wa.me/34966443782" class="whatsapp-btn" target="_blank" title="WhatsApp">💬</a>
+
+</body>
+</html>
